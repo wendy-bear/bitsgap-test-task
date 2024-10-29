@@ -1,6 +1,5 @@
-import { PlaceOrder } from "PlaceOrder";
-
-import styles from "./App.module.scss";
+import { PlaceOrder } from 'PlaceOrder';
+import styles from './App.module.scss';
 
 export default function App() {
   return (

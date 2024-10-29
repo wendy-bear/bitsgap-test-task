@@ -1,8 +1,8 @@
 .root {
-  background-color: #221F2F;
+  background-color: #221f2f;
   border-radius: 8px;
   padding: 10px;
-  color: #A2A7B9;
+  color: #a2a7b9;
 }
 
 .label {
@@ -17,11 +17,11 @@
   margin-bottom: 12px;
 }
 
-.content {
+.wraper {
   display: grid;
-  row-gap: 16px;
+  row-gap: 15px;
 }
 
 .submit {
-  margin: 16px 0 6px;
+  margin: 8px 0 6px;
 }

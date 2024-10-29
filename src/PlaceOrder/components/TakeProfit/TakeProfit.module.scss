@@ -1,2 +1,173 @@
 .root {
+  background-color: #2b273b;
+  border-radius: 8px;
+  padding: 9px 10px;
+  font-size: 12px;
+  font-weight: 500;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .label {
+      display: flex;
+      color: #fff;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 18px;
+      flex-direction: row;
+
+      .title {
+        padding-left: 6px;
+      }
+    }
+  }
+
+  .profitBlock {
+    display: flex;
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: 21px;
+    padding: 0 2px;
+
+    .title,
+    .sum {
+      white-space: nowrap;
+    }
+
+    .border {
+      border-bottom: 1px dashed #818c99;
+      opacity: 0.2;
+      width: 100%;
+      margin: 0 8px;
+    }
+
+    .amount {
+      color: #fff;
+    }
+  }
+
+  .amountToBuySell {
+    float: right;
+    padding-right: 0;
+  }
+
+  .closeIconWrapper {
+    float: right;
+
+    button {
+      padding: 0;
+    }
+  }
+
+  .percentProfit,
+  .percentAmount,
+  .usdt {
+    color: #a2a7b9;
+  }
+
+  .amountToSellBuy {
+    margin-left: 9px;
+  }
+
+  .targetPrice {
+    color: #fff;
+  }
+
+  .buttonContainer {
+    margin-top: 8px;
+    font-size: 12px;
+    margin-left: 7px;
+
+    button span {
+      margin-right: 15px;
+    }
+  }
+
+  .inputWrapper {
+    display: flex;
+    padding-right: 6px;
+
+    .input {
+      margin-left: 0;
+    }
+  }
+
+  .input {
+    background-color: #2b273b;
+    border: none;
+    max-width: 29px;
+    color: #fff;
+    margin-left: 21px;
+
+    /* Chrome, Safari, Edge, Opera */
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+
+  /* Firefox */
+  .input[type='number'] {
+    appearance: textfield;
+  }
+
+  .input:focus {
+    border: none;
+    outline: none;
+    background-color: #2b273b;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+
+    thead tr td {
+      padding-top: 8px;
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid #818c99;
+        td {
+          padding: 9px 0;
+        }
+
+        &.profitError {
+          border-bottom-color: #f96c5a;
+
+          td {
+            input,
+            .percentProfit,
+            .percentAmount,
+            .targetPrice,
+            .usdt {
+              color: #f96c5a;
+            }
+          }
+        }
+
+        &:first-child td {
+          padding-top: 4px;
+        }
+      }
+    }
+  }
+
+  .error {
+    width: 100%;
+    background-color: #2b273b;
+    border: 1px solid #333545;
+    box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.1);
+    color: #f96c5a;
+    border-radius: 8px;
+    padding: 12px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    margin: 8px 0 10px 0;
+    //text-align: center;
+  }
 }

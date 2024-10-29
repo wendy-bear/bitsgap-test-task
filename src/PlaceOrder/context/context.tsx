@@ -1,6 +1,6 @@
-import { createContext, ReactNode, useContext } from "react";
+import { createContext, ReactNode, useContext } from 'react';
 
-import { PlaceOrderStore } from "./store/PlaceOrderStore";
+import { PlaceOrderStore } from '../store/PlaceOrderStore';
 
 const store = new PlaceOrderStore();
 const storeContext = createContext(store);

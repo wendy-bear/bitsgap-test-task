@@ -1,35 +1,35 @@
-import { Button } from "shared/components/Button/Button";
-import type { OrderSide } from "../../model";
+import { Button } from 'shared/components/Button/Button';
+import { OrderSideType } from '../../model';
 
-import styles from "./PlaceOrderTypeSwitch.module.scss";
+import styles from './PlaceOrderTypeSwitch.module.scss';
 
 interface Props {
-  activeOrderSide: OrderSide;
-  onChange(orderSide: OrderSide): void;
+  activeOrderSide: OrderSideType;
+  onChange(orderSide: OrderSideType): void;
 }
 
 const PlaceOrderTypeSwitch = ({ activeOrderSide, onChange }: Props) => {
-  const handleToggle = (orderType: OrderSide) => {
+  const handleToggle = (orderType: OrderSideType) => {
     onChange(orderType);
   };
 
   return (
     <div className={styles.root}>
       <Button
-        color="green"
+        color='green'
         fullWidth
-        size="small"
-        inactive={activeOrderSide !== "buy"}
-        onClick={() => handleToggle("buy")}
+        size='small'
+        inactive={activeOrderSide !== 'buy'}
+        onClick={() => handleToggle(OrderSideType.BUY)}
       >
         Buy
       </Button>
       <Button
-        color="red"
-        size="small"
+        color='red'
+        size='small'
         fullWidth
-        inactive={activeOrderSide === "buy"}
-        onClick={() => handleToggle("sell")}
+        inactive={activeOrderSide === 'buy'}
+        onClick={() => handleToggle(OrderSideType.SELL)}
       >
         Sell
       </Button>

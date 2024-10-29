@@ -6,11 +6,11 @@ import {
   FocusEvent,
   KeyboardEvent,
   ChangeEvent,
-} from "react";
-import * as R from "remeda";
+} from 'react';
+import * as R from 'remeda';
 
-import { escapeRegexpSymbols } from "shared/utils/escapeRegexpSymbols";
-import { convertExponentialToNormal } from "shared/utils/convertExponentialToNormal";
+import { escapeRegexpSymbols } from 'shared/utils/escapeRegexpSymbols';
+import { convertExponentialToNormal } from 'shared/utils/convertExponentialToNormal';
 
 interface FormatOptions {
   suffix?: string;
@@ -32,8 +32,8 @@ function useNumberFormat(
   numberValue: number | null,
   { onChange, onBlur, onFocus, onMouseUp, onKeyUp }: Handlers,
   {
-    prefix = "",
-    suffix = "",
+    prefix = '',
+    suffix = '',
     min: minProp = -Infinity,
     max: maxProp = Infinity,
     decimalScale,
@@ -49,20 +49,20 @@ function useNumberFormat(
   const suffixRegExp = RegExp(`(${safeSuffix})$`);
   const signRegExp = RegExp(`^-(${safePrefix})`);
   const clearValueRegExp = /^(-)?(\d*)?(\.\d*)?$/;
-  const numberRegExp = RegExp(`^(-)?(\\d*)?(\\.\\d{0,${decimalScale ?? ""}})?`);
+  const numberRegExp = RegExp(`^(-)?(\\d*)?(\\.\\d{0,${decimalScale ?? ''}})?`);
   const hasOnlyValidSymbols = R.createPipe(
     removePrefix,
     removeSuffix,
-    (value) => value.replace(/[-\d]/g, ""),
-    (value) => value.replace(/[.]/, ""),
-    (value) => value.length === 0,
+    value => value.replace(/[-\d]/g, ''),
+    value => value.replace(/[.]/, ''),
+    value => value.length === 0,
   );
 
   const [min, max] =
     minProp < maxProp ? [minProp, maxProp] : [maxProp, minProp];
   const disallowNegative = min >= 0;
 
-  const [formattedValue, setFormattedValue] = useState("");
+  const [formattedValue, setFormattedValue] = useState('');
 
   useEffect(() => {
     setFormattedValue(validateAndGetValue(formatNumber(numberValue), true));
@@ -73,7 +73,7 @@ function useNumberFormat(
     prefixRegExp.test(value) !== suffixRegExp.test(value);
 
   const areValuesValid = (value: string, clearString: string) => {
-    if (disallowNegative && clearString.includes("-")) {
+    if (disallowNegative && clearString.includes('-')) {
       return false;
     }
     return (
@@ -106,7 +106,7 @@ function useNumberFormat(
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
     const { value } = event.target;
-    const convertCommaToDotValue = value.replace(",", ".");
+    const convertCommaToDotValue = value.replace(',', '.');
 
     const clearValue = getClearValue(convertCommaToDotValue);
 
@@ -155,7 +155,7 @@ function useNumberFormat(
   }
 
   function correctCaretPosition(start: number, end: number) {
-    const value = inputRef.current?.value ?? "";
+    const value = inputRef.current?.value ?? '';
     const leftBound = prefix.length + (signRegExp.test(value) ? 1 : 0);
     const rightBound = value.length - suffix.length;
     const position =
@@ -168,20 +168,20 @@ function useNumberFormat(
 
   function formatNumber(value: number | null) {
     return formatString(
-      value !== null ? convertExponentialToNormal(value) : "",
+      value !== null ? convertExponentialToNormal(value) : '',
     );
   }
 
   function formatString(value: string) {
-    if (value === "-" || value === "") {
+    if (value === '-' || value === '') {
       return value;
     }
     const operatingValue = formattingZero(value);
-    const [, sign = "", whole = "", decimal = ""] =
+    const [, sign = '', whole = '', decimal = ''] =
       operatingValue.match(numberRegExp) ?? [];
     const showDecimalScale = decimalScale === undefined || decimalScale > 0;
     return `${sign}${prefix}${whole}${
-      showDecimalScale ? decimal : ""
+      showDecimalScale ? decimal : ''
     }${suffix}`;
   }
 
@@ -192,7 +192,7 @@ function useNumberFormat(
 
   function correctSign(value: string) {
     const needNegate = (value.match(/-/g)?.length ?? 0) % 2 !== 0;
-    const valueWithoutSign = value.replace(/-/g, "");
+    const valueWithoutSign = value.replace(/-/g, '');
     return needNegate ? `-${valueWithoutSign}` : valueWithoutSign;
   }
 
@@ -201,11 +201,11 @@ function useNumberFormat(
   }
 
   function removePrefix(value: string) {
-    return value.replace(prefixRegExp, "$1");
+    return value.replace(prefixRegExp, '$1');
   }
 
   function removeSuffix(value: string) {
-    return value.replace(suffixRegExp, "");
+    return value.replace(suffixRegExp, '');
   }
 
   function validateByLimits(value: number | null, forced: boolean) {
@@ -225,7 +225,7 @@ function useNumberFormat(
   }
 
   function validateAndGetValue(value: string, forced: boolean): string {
-    if (value === "") {
+    if (value === '') {
       return value;
     }
 
@@ -246,7 +246,7 @@ function useNumberFormat(
 
   function formattingZero(value: string) {
     if (/^0{2,}$/.test(value)) {
-      return "0";
+      return '0';
     }
 
     if (/^0[1-9]+(\.)?(\d+)?$/.test(value)) {
@@ -262,7 +262,7 @@ function useNumberFormat(
     }
 
     if (/^-[.]\d+?$/.test(value)) {
-      const pureValue = value.replace(/-/g, "");
+      const pureValue = value.replace(/-/g, '');
       return `-0${pureValue}`;
     }
 

@@ -1,13 +1,13 @@
-import { observable, computed, action, makeObservable } from "mobx";
+import { observable, computed, action, makeAutoObservable } from 'mobx';
 
-import type { OrderSide } from "../model";
+import { OrderSideType } from '../model';
 
 export class PlaceOrderStore {
   constructor() {
-    makeObservable(this);
+    makeAutoObservable(this);
   }
 
-  @observable activeOrderSide: OrderSide = "buy";
+  @observable activeOrderSide: OrderSideType = OrderSideType.BUY;
   @observable price = 0;
   @observable amount = 0;
 
@@ -16,7 +16,7 @@ export class PlaceOrderStore {
   }
 
   @action
-  public setOrderSide = (side: OrderSide) => {
+  public setOrderSide = (side: OrderSideType) => {
     this.activeOrderSide = side;
   };
 

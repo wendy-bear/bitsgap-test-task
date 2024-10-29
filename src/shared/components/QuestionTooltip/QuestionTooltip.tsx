@@ -1,13 +1,13 @@
-import type { ReactNode } from "react";
-import type { TooltipProps } from "@mui/material";
+import type { ReactNode } from 'react';
+import type { TooltipProps } from '@mui/material';
 
-import { Tooltip } from "shared/components/Tooltip/Tooltip";
-import { InfoIcon } from "./InfoIcon/InfoIcon";
-import styles from "./QuestionTooltip.module.scss";
+import { Tooltip } from 'shared/components/Tooltip/Tooltip';
+import { InfoIcon } from './InfoIcon/InfoIcon';
+import styles from './QuestionTooltip.module.scss';
 
 interface Props {
   message: ReactNode;
-  placement?: TooltipProps["placement"];
+  placement?: TooltipProps['placement'];
   wide?: boolean;
 }
 

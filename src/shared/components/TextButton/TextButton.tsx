@@ -1,9 +1,9 @@
-import { Button, ButtonProps } from "@mui/material";
-import cn from "classnames";
+import { Button, ButtonProps } from '@mui/material';
+import cn from 'classnames';
 
-import styles from "./TextButton.module.scss";
+import styles from './TextButton.module.scss';
 
-const classes: ButtonProps["classes"] = {
+const classes: ButtonProps['classes'] = {
   root: styles.root,
   focusVisible: cn(styles.root, styles.focused),
 };

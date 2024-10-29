@@ -1,7 +1,7 @@
-import type { ChangeEvent } from "react";
-import cn from "classnames";
+import type { ChangeEvent } from 'react';
+import cn from 'classnames';
 
-import styles from "./Switch.module.scss";
+import styles from './Switch.module.scss';
 
 interface Props {
   checked: boolean;
@@ -29,7 +29,7 @@ function Switch({
     >
       <input
         className={styles.checkbox}
-        type="checkbox"
+        type='checkbox'
         checked={checked}
         onChange={handleChange}
         disabled={disabled}

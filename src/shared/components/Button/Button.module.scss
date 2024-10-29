@@ -4,61 +4,71 @@
   text-transform: none;
   min-width: auto;
   color: #fff;
-  
+
   font-weight: 500;
 
   &.green {
-    border-color: #2BBF89;
-    background-color: #2BBF89;
-  
+    border-color: #2bbf89;
+    background-color: #2bbf89;
+
     &:hover {
       background-color: rgb(34, 153, 109);
     }
   }
-  
+
   &.red {
-    background-color: #F96C5A;
-    border-color: #F96C5A;
-  
+    background-color: #f96c5a;
+    border-color: #f96c5a;
+
     &:hover {
       background-color: rgb(196, 86, 72);
     }
   }
 
   &.inactive {
-    background-color: transparent;
-    border-color: #333545;
+    //background-color: transparent;
 
-    &.green {
-      color: #2BBF89;
+    background: rgb(64, 68, 87);
+    border-color: rgb(64, 68, 87);
 
-      &:hover {
-        color: #fff;
-        border-color: #2BBF89;
-        background-color: #2BBF89;
-      }
+    color: rgb(162, 167, 185);
+
+    &:hover {
+      background: rgb(64, 68, 87);
+      border-color: rgb(64, 68, 87);
+      color: rgb(162, 167, 185);
     }
 
-    &.red {
-      color: #F96C5A;
+    // &.green {
+    //   color: #2bbf89;
 
-      &:hover {
-        color: #fff;
-        border-color: #F96C5A;
-        background-color: #F96C5A;
-      }
-    }
+    //   &:hover {
+    //     color: #fff;
+    //     border-color: #2bbf89;
+    //     background-color: #2bbf89;
+    //   }
+    // }
+
+    // &.red {
+    //   color: #f96c5a;
+
+    //   &:hover {
+    //     color: #fff;
+    //     border-color: #f96c5a;
+    //     background-color: #f96c5a;
+    //   }
+    // }
   }
 
-    &.small {
-      font-size: 12px;
-      line-height: 14px;
-      padding: 7px 8px;
-    }
+  &.small {
+    font-size: 12px;
+    line-height: 14px;
+    padding: 7px 8px;
+  }
 
-    &.normal {
-      font-size: 14px;
-      line-height: 16px;
-      padding: 15px 12px;
-    }
+  &.normal {
+    font-size: 14px;
+    line-height: 16px;
+    padding: 15px 12px;
+  }
 }

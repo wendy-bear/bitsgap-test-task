@@ -1,13 +1,13 @@
-import type { ReactNode } from "react";
-import { Tooltip as MUITooltip, TooltipProps } from "@mui/material";
+import type { ReactNode } from 'react';
+import { Tooltip as MUITooltip, TooltipProps } from '@mui/material';
 
-import styles from "./Tooltip.module.scss";
+import styles from './Tooltip.module.scss';
 
 interface Props {
   message: ReactNode;
-  children: TooltipProps["children"];
+  children: TooltipProps['children'];
   open?: boolean;
-  placement?: TooltipProps["placement"];
+  placement?: TooltipProps['placement'];
   disableInteractive?: boolean;
   disableHoverListener?: boolean;
   disableTouchListener?: boolean;
@@ -17,7 +17,7 @@ interface Props {
 function Tooltip({
   children,
   message,
-  placement = "bottom",
+  placement = 'bottom',
   open,
   disableInteractive = true,
   disableHoverListener,

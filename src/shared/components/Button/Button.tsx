@@ -1,18 +1,18 @@
-import { Button as MUIButton, ButtonProps } from "@mui/material";
-import cn from "classnames";
+import { Button as MUIButton, ButtonProps } from '@mui/material';
+import cn from 'classnames';
 
-import styles from "./Button.module.scss";
+import styles from './Button.module.scss';
 
-type Props = Omit<ButtonProps, "color" | "size"> & {
-  color: "green" | "red";
-  size?: "small" | "normal";
+type Props = Omit<ButtonProps, 'color' | 'size'> & {
+  color: 'green' | 'red';
+  size?: 'small' | 'normal';
   inactive?: boolean;
 };
 
 const Button = ({
   children,
   color,
-  size = "normal",
+  size = 'normal',
   inactive = false,
   ...rest
 }: Props) => (

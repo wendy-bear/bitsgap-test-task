@@ -1,5 +1,5 @@
-import { StoreProvider } from "./context";
-import { PlaceOrderForm } from "./PlaceOrderForm";
+import { StoreProvider } from './context/context';
+import { PlaceOrderForm } from './components/PlaceOrderForm/PlaceOrderForm';
 
 export const PlaceOrder = () => (
   <StoreProvider>

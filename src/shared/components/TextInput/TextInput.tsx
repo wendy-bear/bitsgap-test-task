@@ -1,30 +1,30 @@
-import { useState, ReactNode, ChangeEvent, FocusEvent } from "react";
+import { useState, ReactNode, ChangeEvent, FocusEvent } from 'react';
 import {
   TextField,
   TextFieldProps,
   InputBaseProps as MUIInputProps,
   InputLabelProps as MUIInputLabelProps,
   TooltipProps,
-} from "@mui/material";
-import cn from "classnames";
+} from '@mui/material';
+import cn from 'classnames';
 
-import { Tooltip } from "../Tooltip/Tooltip";
-import styles from "./TextInput.module.scss";
+import { Tooltip } from '../Tooltip/Tooltip';
+import styles from './TextInput.module.scss';
 
 type Props = Omit<
   TextFieldProps,
-  "variant" | "onChange" | "className" | "classes" | "error"
+  'variant' | 'onChange' | 'className' | 'classes' | 'error'
 > & {
   error?: ReactNode;
   InputLabelProps?: Omit<
-    TextFieldProps["InputLabelProps"],
-    "className" | "classes"
+    TextFieldProps['InputLabelProps'],
+    'className' | 'classes'
   >;
   InputProps?: Omit<
-    TextFieldProps["InputProps"],
-    "disableUnderline" | "classes" | "className"
+    TextFieldProps['InputProps'],
+    'disableUnderline' | 'classes' | 'className'
   >;
-  errorPlacement?: TooltipProps["placement"];
+  errorPlacement?: TooltipProps['placement'];
   onChange?(value: string): void;
 };
 
@@ -35,10 +35,10 @@ const TextInput = ({
   onBlur,
   InputLabelProps,
   InputProps,
-  errorPlacement = "top",
+  errorPlacement = 'top',
   ...rest
 }: Props) => {
-  const inputClasses: MUIInputProps["classes"] = {
+  const inputClasses: MUIInputProps['classes'] = {
     root: cn(styles.inputWrapper, { [styles.error]: Boolean(error) }),
     focused: cn(styles.inputWrapper, styles.focused),
     adornedEnd: cn(styles.inputWrapper, styles.adornedEnd),
@@ -46,7 +46,7 @@ const TextInput = ({
     input: styles.input,
   };
 
-  const labelClasses: MUIInputLabelProps["classes"] = {
+  const labelClasses: MUIInputLabelProps['classes'] = {
     root: styles.inputLabel,
   };
 
@@ -55,13 +55,13 @@ const TextInput = ({
   return (
     <Tooltip
       open={isFocused && !!error}
-      message={error ?? ""}
+      message={error ?? ''}
       placement={errorPlacement}
     >
       <TextField
         {...rest}
         className={styles.root}
-        variant="filled"
+        variant='filled'
         onChange={handleChange}
         InputLabelProps={{
           ...InputLabelProps,
